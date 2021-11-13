@@ -1,0 +1,20 @@
+no arquivo "docker-compose.yaml" está a configuração para disparar 3 servidores com o consul
+
+Para iniciar um "agent" do consul que vai servir para monitoramento deve ser seguido os passos abaixo:
+1. abrir um terminal
+2. docker exec -it <nome do container> sh
+3. disparar o "ifconfig" para descobrir o IP do container
+4. executar o comando:
+   => mkdir /etc/consul.d
+   => mkdir /var/lib/consul
+   => consul agent -server -bootstrap-expect=<qtd servidores esperado> -node=<nome do container> -bind=<ip do container> -data-dir=/var/lib/consul -config-dir=/etc/consul.d
+
+Para cada servidor deve ser executada a sequencia acima
+
+Para verificar os membros de um distrito deve ser feito
+1. abrir um terminal
+2. docker exec -it <nome do container> sh
+3. consul member
+
+Para incluir os agentes em um mesmo distrito, basta em um dos terminais dispara o comando abaixo
+=> consul join <ip do container>
