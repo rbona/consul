@@ -25,3 +25,9 @@ Para gerar uma chave de criptografia.
 3. Copiar a chave para o item "encrypt" no json do container em servers 
 Se um dos componentes do cluster não estiver criptografado, enquanto os outros estiverem, esse cluster sem criptografia não será conectado no cluster
 Deve ser utilizada a mesma chave para todos os agents
+
+Para acessar a user interface do consul, deve ser incluido no comando de inicialização do agent o seguinte:
+-ui -client=0.0.0.0
+Ou incluir no json de configuração dos servidores.
+No final deve ser compartilhada a porta 8500 do container
+Para acessar a UI basta acessar a url localhost:8500/ui
