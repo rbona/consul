@@ -18,3 +18,10 @@ Para verificar os membros de um distrito deve ser feito
 
 Para incluir os agentes em um mesmo distrito, basta em um dos terminais dispara o comando abaixo
 => consul join <ip do container>
+
+Para gerar uma chave de criptografia. 
+1. Acessar o terminal do container
+2. Executar o comando: consul keygen
+3. Copiar a chave para o item "encrypt" no json do container em servers 
+Se um dos componentes do cluster não estiver criptografado, enquanto os outros estiverem, esse cluster sem criptografia não será conectado no cluster
+Deve ser utilizada a mesma chave para todos os agents
